@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FKab Business - Montres de Classe pour Hommes Ambitieux</title>
+    <meta name="description" content="FKab Business, boutique en ligne de montres de luxe à Lubumbashi. Découvrez des garde-temps d'exception pour hommes ambitieux.">
+    <style>
+        /* Variables CSS pour la palette de couleurs */
+        :root {
+            --jaune-vif: #FFD700;
+            --jaune-fonce: #FFC000;
+            --noir: #000000;
+            --noir-clair: #1A1A1A;
+            --gris-fonce: #333333;
+            --gris-moyen: #666666;
+            --gris-clair: #F5F5F5;
+            --blanc: #FFFFFF;
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Now', 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--blanc);
+            color: var(--noir);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* Header et Navigation */
+        header {
+            background-color: var(--noir);
+            color: var(--blanc);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--jaune-vif);
+        }
+
+        .logo span {
+            color: var(--blanc);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--jaune-vif);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--jaune-vif);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--blanc);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1547996160-81dfd9c4b1cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--blanc);
+            padding: 8rem 1rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--jaune-vif);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--jaune-vif);
+            color: var(--noir);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--jaune-fonce);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sections générales */
+        .section {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--jaune-vif);
+            margin: 1rem auto;
+        }
+
+        /* Section Best-sellers */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--blanc);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--gris-clair);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            height: 250px;
+            background-color: var(--gris-clair);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--noir);
+        }
+
+        .product-price {
+            font-weight: 700;
+            color: var(--noir);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .product-details {
+            color: var(--gris-moyen);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-small {
+            display: inline-block;
+            background-color: var(--noir);
+            color: var(--jaune-vif);
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-small:hover {
+            background-color: var(--gris-fonce);
+            transform: translateY(-2px);
+        }
+
+        /* Section À propos */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Section Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            background-color: var(--jaune-vif);
+            color: var(--noir);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            background-color: var(--gris-clair);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--gris-moyen);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--noir);
+            color: var(--blanc);
+            padding: 3rem 1rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--jaune-vif);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h3 {
+            color: var(--jaune-vif);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--jaune-vif);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--noir);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">FKab<span>Business</span></a>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul id="main-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="boutique.html">Boutique</a></li>
+                    <li><a href="a-propos.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>L'Art du Temps, Maîtrisé</h1>
+            <p>FKab Business n'est pas une simple boutique de montres. C'est le partenaire des hommes qui marquent leur époque. Découvrez des garde-temps où le design épuré rencontre l'excellence technique.</p>
+            <a href="#produits" class="btn">Découvrir la collection</a>
+        </div>
+    </section>
+
+    <!-- Section Best-sellers -->
+    <section class="section" id="produits">
+        <h2 class="section-title">Nos Montres de Prestige</h2>
+        <div class="products-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="Rolex sans Bracelet.jpg" alt="Rolex sans Bracelet">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Rolex</h3>
+                    <p class="product-price">50 000 FC</p>
+                    <p class="product-details">Avec Bracelet</p>
+                    <a href="#" class="btn-small">Commander</a>
+                </div>
+            </div>
+            
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="rolex avec manche.jpg" alt="Rolex avec manche en cuir">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Rolex</h3>
+                    <p class="product-price">40 000 FC</p>
+                    <p class="product-details">Avec manche en cuir</p>
+                    <a href="#" class="btn-small">Commander</a>
+                </div>
+            </div>
+            
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="rolex avec bracelet.jpg" alt="Rolex avec bracelet">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Rolex</h3>
+                    <p class="product-price">70 000 FC</p>
+                    <p class="product-details">Avec bracelet</p>
+                    <a href="#" class="btn-small">Commander</a>
+                </div>
+            </div>
+            
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="casio1.jpg" alt="Casio">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Casio</h3>
+                    <p class="product-price">45 000 FC</p>
+                    <p class="product-details">Montre élégante et fonctionnelle</p>
+                    <a href="#" class="btn-small">Commander</a>
+                </div>
+            </div>
+            
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="patek philippe2.jpg" alt="Patek Philippe">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Patek Philippe</h3>
+                    <p class="product-price">60 000 FC</p>
+                    <p class="product-details">Excellence horlogère</p>
+                    <a href="#" class="btn-small">Commander</a>
+                </div>
+            </div>
+            
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="hublot.jpg" alt="Hublot Genève">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Hublot Genève</h3>
+                    <p class="product-price">50 000 FC</p>
+                    <p class="product-details">Élégance et innovation</p>
+                    <a href="#" class="btn-small">Commander</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section class="section" style="background-color: var(--gris-clair);">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Notre Histoire est Rythmée par Votre Réussite</h2>
+                <p>Née d'une passion pour l'authenticité et le détail, FKab Business s'engage à vous offrir des montres qui transcendent le temps. Nous ne vendons pas du luxe, nous certifions un style de vie.</p>
+                <p>Notre mission est de fournir des montres de qualité exceptionnelle qui incarnent la classe, l'ambition et la réussite. Chaque pièce est soigneusement sélectionnée pour répondre aux exigences des hommes déterminés à laisser leur marque.</p>
+                <a href="a-propos.html" class="btn">En savoir plus</a>
+            </div>
+            <div class="about-image">
+                <img src="affiche2.jpg" alt="Notre atelier FKab Business">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="section">
+        <h2 class="section-title">Votre Satisfaction, Notre Priorité Absolue</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h3>Notre adresse</h3>
+                        <p>Golf Plateau Karavia<br>Lubumbashi, République Démocratique du Congo</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h3>Téléphone</h3>
+                        <p>+243 824 094 764</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>fkabbusiness@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕒</div>
+                    <div>
+                        <h3>Horaires de ventes</h3>
+                        <p>Lundi - samdi: 9h00 - 16h30<br>NB : la commande ce fait deux heures avant livraison </p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Une question ? Contactez-nous</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">FKab Business</div>
+                <p>Votre partenaire pour des montres de classe qui incarnent l'ambition et la réussite. Basée à Lubumbashi, nous nous engageons à vous offrir l'excellence horlogère.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="boutique.html">Boutique</a></li>
+                    <li><a href="a-propos.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+                    <li><a href="conditions-utilisation.html">Conditions d'utilisation</a></li>
+                    <li><a href="livraison-retours.html">Livraison & Retours</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Inscrivez-vous pour recevoir nos offres exclusives et conseils style.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Votre email" required>
+                    </div>
+                    <button type="submit" class="btn">S'abonner</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; "pourquoi une montre de qualité est un investissement dans notre image".</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('main-menu').classList.toggle('show');
+        });
+
+        // Animation au défilement
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.product-card, .about-content, .contact-container');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if(position < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialisation des animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.product-card, .about-content, .contact-container');
+            
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // Déclenchement initial
+            setTimeout(() => {
+                window.dispatchEvent(new Event('scroll'));
+            }, 100);
+        });
+    </script>
+</body>
+</html>
